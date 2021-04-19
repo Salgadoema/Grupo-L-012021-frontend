@@ -13,7 +13,7 @@ function App() {
   })
 
   const getHello = () => {
-    fetch(API + '/hola')
+    fetch(API + "/hola")
       .then(response => response.text())
       .then(data => setSaludo(data))
   }
