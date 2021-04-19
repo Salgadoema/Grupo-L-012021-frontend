@@ -4,20 +4,17 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  const API = 'localhost:8080'
+  const API = 'http://localhost:8080'
 
   const [saludo, setSaludo] = useState("");
-
-  var result = "";
 
   useEffect(() => {
     getHello();
   })
 
   const getHello = () => {
-    fetch('http://localhost:8080/hola')
+    fetch(API + "/hola")
       .then(response => response.text())
-      //.then(data => console.log(data))
       .then(data => setSaludo(data))
   }
 
