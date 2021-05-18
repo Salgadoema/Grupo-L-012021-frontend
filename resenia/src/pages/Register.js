@@ -14,12 +14,10 @@ class Register extends Component{
     
     //capturar lo que los usuarios escriben
     state={
-        form:{             
-            firstname: '',
-            surname: '',
-            username: '',
-            password: '',
-            platform:''
+        form:{          
+            platform:'',   
+            password: ''
+            
         }
     }
 
@@ -36,12 +34,9 @@ class Register extends Component{
     }
 
     signUp=async()=>{
-        await axios.post(baseUrl, {params:{  firstname: this.state.form.firstname,
-                                             surname:this.state.form.surname,
-                                             username: this.state.form.username, 
-                                             password: md5(this.state.form.password),
-                                             platform: this.state.form.platform
-                                            }})
+        await axios.post(baseUrl, {  platform: this.state.form.platform,
+                                             password: md5(this.state.form.password)
+                                            })
         .then(response=>{
             console.log(response.data);
         })
@@ -55,43 +50,8 @@ class Register extends Component{
         return (
     <div className="containerPrincipal">
         <div className="containerSecundario">
-          <div className="form-group">
-          <label>First Name: </label>
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              name="firstname"
-              onChange={this.handleChange}
-            />
-            <br />
-            <label>Surname: </label>
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              name="surname"
-              onChange={this.handleChange}
-            />
-            <br />
-            <label>User: </label>
-            <br />
-            <input
-              type="text"
-              className="form-control"
-              name="username"
-              onChange={this.handleChange}
-            />
-            <br />
-            <label>Password: </label>
-            <br />
-            <input
-              type="password"
-              className="form-control"
-              name="password"
-              onChange={this.handleChange}
-            />
-            <br />
+        
+          <br />
             <label>Platform: </label>
             <br />
             <input
@@ -101,10 +61,19 @@ class Register extends Component{
               onChange={this.handleChange}
             />
             <br />
+       
+            <label>Password: </label>
+            <br />
+            <input
+              type="password"
+              className="form-control"
+              name="password"
+              onChange={this.handleChange}
+            />
             <button className="btn btn-primary" onClick={()=> this.signUp()}>Sign Up</button>
           </div>
         </div>
-      </div>
+
         );
     }
 
