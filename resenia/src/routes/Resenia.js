@@ -1,8 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
-import { useEffect, useState } from 'react';
 
-function App() {
+import { useEffect, useState } from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import login from '../pages/login';
+import register from '../pages/Register';
+
+function Resenia() {
 
   const API = 'http://localhost:8080'
 
@@ -19,10 +21,12 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>{saludo}</h1>
-    </div>
+    <BrowserRouter>
+      <Switch>
+         <Route exact path="/" component={register}/>
+      </Switch>
+    </BrowserRouter>
   )
 }
 
-export default App;
+export default Resenia;
