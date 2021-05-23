@@ -1,11 +1,12 @@
 
-import { useEffect, useState } from 'react';
+
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import login from '../pages/login';
 import register from '../pages/Register';
+import history from '../pages/history';
 
 function Resenia() {
-
+/*
   const API = 'http://localhost:8080'
 
   const [saludo, setSaludo] = useState("");
@@ -19,11 +20,13 @@ function Resenia() {
       .then(response => response.text())
       .then(data => setSaludo(data))
   }
-
+*/
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Switch>
          <Route exact path="/" component={register}/>
+         <Route path="/Register" component={register} />
+         <Route path="/login" component={login} />
       </Switch>
     </BrowserRouter>
   )

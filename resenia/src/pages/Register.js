@@ -3,7 +3,8 @@ import '../css/Register.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import md5 from 'md5';
-import Cookies from 'universal-cookie';
+import history from '../pages/history';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 const baseUrl = "http://localhost:8080/api/users/signup/"; 
@@ -11,6 +12,7 @@ const baseUrl = "http://localhost:8080/api/users/signup/";
   
 class Register extends Component{
  
+    
     
     //capturar lo que los usuarios escriben
     state={
@@ -21,7 +23,7 @@ class Register extends Component{
         }
     }
 
-
+    
     //metodo para capturar lo que los usuarios escriben en los imput
     handleChange=async e=>{
         await this.setState({
@@ -30,7 +32,7 @@ class Register extends Component{
                 [e.target.name]: e.target.value
                 
             }
-        });console.log(this.state.form)
+        });
     }
 
     signUp=async()=>{
@@ -38,12 +40,25 @@ class Register extends Component{
                                              password: md5(this.state.form.password)
                                             })
         .then(response=>{
-            console.log(response.data);
+            
+            console.log(response.data.props);
+            localStorage.setItem('token', response.token)
+            this.props.history.push({
+                pathname: '/login',
+                search: '?query=abc',
+                Headers: {"Accept": "application/json"},
+                state: { detail: response.data }
+              })
+
         })
         .catch(error=>{
             console.log(error);
         })
-
+    .then((response)=>{
+        
+        //history.push('/login');
+        window.location.reload(false);
+    })
     }
     
     render() {
@@ -68,9 +83,10 @@ class Register extends Component{
               type="password"
               className="form-control"
               name="password"
-              onChange={this.handleChange}
+              onChange={this.handleChange}  
             />
-            <button className="btn btn-primary" onClick={()=> this.signUp()}>Sign Up</button>
+            <button className="btn btn-primary" onClick={() => this.signUp()}>Sign Up</button>
+            
           </div>
         </div>
 
