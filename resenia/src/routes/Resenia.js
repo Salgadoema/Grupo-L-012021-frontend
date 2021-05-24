@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import login from '../pages/login';
 import register from '../pages/Register';
 import history from '../pages/history';
+import hellowordl from '../pages/hellowordl';
 
 function Resenia() {
 /*
@@ -27,6 +28,7 @@ function Resenia() {
          <Route exact path="/" component={register}/>
          <Route path="/Register" component={register} />
          <Route path="/login" component={login} />
+         <Route path ="/prueba" component = {hellowordl}/>
       </Switch>
     </BrowserRouter>
   )

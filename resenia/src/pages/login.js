@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 
 
-const baseUrl = "http://localhost:8080/api/users/byUser/";
+
+//const baseUrl = "http://localhost:8080/api/users/byUser/";
+
 
 class login extends Component{
     
@@ -41,7 +43,7 @@ class login extends Component{
           <div className="form-group">
         
 
-          <div>Te registraste Exitosamente! </div>
+          <div>Registration succesfully! </div>
 
           
             <button className="btn btn-primary" onClick={()=> this.getApikey()}>Obtener Api Key</button>

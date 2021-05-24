@@ -1,0 +1,8 @@
+{
+    "header":{
+        "helloWorld":"hola mundo",
+        "Platform": "Plataforma:" ,
+        "Password": "Contraseña:" ,
+        "Signup": "Registracion"
+    }
+}
