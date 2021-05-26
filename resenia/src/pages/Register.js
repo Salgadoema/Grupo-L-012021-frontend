@@ -3,26 +3,22 @@ import '../css/Register.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import md5 from 'md5';
+import hoistStatics from 'hoist-non-react-statics';
 
-import {useTranslation} from "react-i18next";
+import {useTranslation, withTranslation} from "react-i18next";
 
 
 const baseUrl = "http://localhost:8080/api/users/signup/"; 
 
 class Register extends Component{
-
-
-     
+   
     //capturar lo que los usuarios escriben
     state={
         form:{          
             platform:'',   
             password: ''
-            
         }
-    }
-
-    
+    } 
     //metodo para capturar lo que los usuarios escriben en los imput
     handleChange=async e=>{
         await this.setState({
@@ -38,8 +34,7 @@ class Register extends Component{
         await axios.post(baseUrl, {  platform: this.state.form.platform,
                                              password: (this.state.form.password)
                                  })
-        .then(response=>{
-            
+        .then(response=>{  
             console.log(response.data.props);
             localStorage.setItem('token', response.token)
             this.props.history.push({
@@ -48,7 +43,6 @@ class Register extends Component{
                 Headers: {"Accept": "application/json"},
                 state: { detail: response.data }
               })
-
         })
         .catch(error=>{
             console.log(error);
@@ -58,10 +52,13 @@ class Register extends Component{
         //history.push('/login');
         window.location.reload(false);
     })
-    }
-    
+}
+
+   
     render() {
+  
         return (
+           
     <div className="containerPrincipal">
         <div className="containerSecundario">
         
@@ -85,13 +82,15 @@ class Register extends Component{
               onChange={this.handleChange}  
             />
            
-            <button className="btn btn-primary" onClick={() => this.signUp()}>signup </button>
+            <button className="btn btn-primary" onClick={() => this.signUp()}>signup</button>
             
           </div>
+          <br/><br/>
+ 
         </div>
 
         );
-    }
+    }   
 
 }
 
