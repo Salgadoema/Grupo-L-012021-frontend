@@ -13,7 +13,17 @@ export default function Headers(){
     const [t,i18n]=useTranslation("global");
     let history = useHistory();
     return(
-    
+    <div>       
+       
+      <button className='btn'
+    onClick={()=> i18n.changeLanguage("es")}
+    > ES </button>&nbsp;
+    <button className='btn'
+    onClick={()=> i18n.changeLanguage("fr")}
+    > FR </button>&nbsp;
+    <button className='btn'
+    onClick={()=> i18n.changeLanguage("en")}
+    > EN </button>
             <div className="containerPrincipal">
         <div className="containerSecundario">
         
@@ -33,15 +43,8 @@ export default function Headers(){
            
            </div>
           <br/><br/>
-            <button 
-            onClick={()=> i18n.changeLanguage("es")}
-            > ES </button>
-            <button 
-            onClick={()=> i18n.changeLanguage("fr")}
-            > FR </button>
-            <button 
-            onClick={()=> i18n.changeLanguage("en")}
-            > EN </button>
+  
  
-        </div>
+          </div>
+                  </div>
     );}

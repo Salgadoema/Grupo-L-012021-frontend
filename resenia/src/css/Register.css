@@ -6,6 +6,21 @@
       border: 1px solid blue;
       padding: 40px;
       background-color: white;
+
+
+        margin: 0 auto;
+        
+        position: "fixed";
+
+    display: "flex";
+    justify-content: "space-between";
+    align-items: "center";
+    width: "100%";
+  
+
+    
+    padding: "0px 20px";
+    box-sizing: "border-box";
   }
   
   .containerSecundario{
@@ -14,4 +29,27 @@
 
   .formImg{
     cursor:pointer;
+  }
+
+  .btn{
+    position: "fixed";
+    margin-top:10px;
+    display: "flex";
+    color: white;
+    text-decoration: none;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    text-align: center;
+
+    line-height: 30px;
+    display: inline-block;
+    position: relative;
+    border-radius: 20px;
+    padding: 15px 32px 15px 32px;
+    box-shadow: 0 2px 2px #888888;
+    transition: color 0.3s, background-image 0.5s, ease-in-out;
+  }
+  .btn:hover {
+    background-image: linear-gradient(#b1ccda 49%, #96b4c5 51%);
+    color: #055885;
   }
