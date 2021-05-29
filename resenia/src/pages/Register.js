@@ -1,17 +1,14 @@
-import App, {Component} from 'react';
+import  {Component} from 'react';
 import '../css/Register.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
-import md5 from 'md5';
-import hoistStatics from 'hoist-non-react-statics';
 
-import {useTranslation, withTranslation} from "react-i18next";
 
 
 const baseUrl = "http://localhost:8080/api/users/signup/"; 
 
 class Register extends Component{
-   
+
     //capturar lo que los usuarios escriben
     state={
         form:{          
@@ -52,19 +49,22 @@ class Register extends Component{
         //history.push('/login');
         window.location.reload(false);
     })
+
+
 }
 
    
     render() {
-  
+       
         return (
-           
+    <div>
+    <img className= "formImg"src= "/home.png" alt="image" onClick={()=> this.props.history.push('/home')}></img>
     <div className="containerPrincipal">
+        
         <div className="containerSecundario">
         
           <br />
-            <label>Platform: </label>
-            <br />
+          <img className= "Img"src= "/Person.png" alt="image"></img>
             <input
               type="text"
               className="form-control"
@@ -72,28 +72,29 @@ class Register extends Component{
               onChange={this.handleChange}
             />
             <br />
-       
-            <label>Password: </label>
-            <br />
+            <img className= "Img"src= "/Password.png" alt="image"></img>
+              
             <input
               type="password"
               className="form-control"
               name="password"
+              autofocus
               onChange={this.handleChange}  
             />
-           
-            <button className="btn btn-primary" onClick={() => this.signUp()}>signup</button>
+           <br/><br/>
             
+            <img className= "formImg"src= "/play.png" alt="image" onClick={() => this.signUp()}></img>
+            
+           
           </div>
-          <br/><br/>
- 
+          
+           
         </div>
-
+        </div>
         );
     }   
 
 }
-
 
 
 export default Register;

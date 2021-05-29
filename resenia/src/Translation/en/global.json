@@ -1,9 +1,11 @@
 {
     "header":{
+        "greetings":"Welcome to RESEÑA, before starting you must register",
         "helloWorld":"hello world",
           "Platform": "Platform:" ,
          "Password": "Password:" ,
-         "Signup": "SignUp"
+         "Signup": "SignUp",
+         "toRegister": "Go to Register"
     }
     
     

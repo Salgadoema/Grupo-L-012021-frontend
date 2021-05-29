@@ -11,3 +11,7 @@
   .containerSecundario{
     text-align: center;
   }
+
+  .formImg{
+    cursor:pointer;
+  }
