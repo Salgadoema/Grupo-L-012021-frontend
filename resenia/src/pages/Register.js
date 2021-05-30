@@ -35,7 +35,7 @@ class Register extends Component{
             console.log(response.data.props);
             localStorage.setItem('token', response.token)
             this.props.history.push({
-                pathname: '/login',
+                pathname: '/apiKey',
                 search: '?query=abc',
                 Headers: {"Accept": "application/json"},
                 state: { detail: response.data }
