@@ -1,6 +1,6 @@
 {
     "header":{
-        "greetings":"Welcome to RESEÑA, before starting you must register",
+        "greetings":"Welcome to RESEÑA, before starting you must register. Then get the Api key and copy it",
         "helloWorld":"hello world",
           "Platform": "Platform:" ,
          "Password": "Password:" ,

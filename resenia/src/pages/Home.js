@@ -15,15 +15,9 @@ export default function Headers(){
     return(
     <div>       
        
-      <button className='btn'
-    onClick={()=> i18n.changeLanguage("es")}
-    > ES </button>&nbsp;
-    <button className='btn'
-    onClick={()=> i18n.changeLanguage("fr")}
-    > FR </button>&nbsp;
-    <button className='btn'
-    onClick={()=> i18n.changeLanguage("en")}
-    > EN </button>
+  <img src= "/es.png" alt="espanol"className='btn' onClick={()=> i18n.changeLanguage("es")} ></img>&nbsp;
+    <img className='btn' src= "/fr.png" alt="french"    onClick={()=> i18n.changeLanguage("fr")}></img>&nbsp;
+    <img className='btn'src= "/en.png" alt="English"  onClick={()=> i18n.changeLanguage("en")}></img>
             <div className="containerPrincipal">
         <div className="containerSecundario">
         

@@ -2,6 +2,7 @@ import  {Component} from 'react';
 import '../css/Register.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import md5 from 'md5';
 
 
 
@@ -29,7 +30,7 @@ class Register extends Component{
 
     signUp=async()=>{
         await axios.post(baseUrl, {  platform: this.state.form.platform,
-                                             password: (this.state.form.password)
+                                             password: md5(this.state.form.password)
                                  })
         .then(response=>{  
             console.log(response.data.props);
