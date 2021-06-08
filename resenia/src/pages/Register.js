@@ -1,29 +1,22 @@
-import App, {Component} from 'react';
+import  {Component} from 'react';
 import '../css/Register.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import md5 from 'md5';
-import history from '../pages/history';
-import { useAuth0 } from "@auth0/auth0-react";
+
 
 
 const baseUrl = "http://localhost:8080/api/users/signup/"; 
 
-  
 class Register extends Component{
- 
-    
-    
+
     //capturar lo que los usuarios escriben
     state={
         form:{          
             platform:'',   
             password: ''
-            
         }
-    }
-
-    
+    } 
     //metodo para capturar lo que los usuarios escriben en los imput
     handleChange=async e=>{
         await this.setState({
@@ -38,18 +31,16 @@ class Register extends Component{
     signUp=async()=>{
         await axios.post(baseUrl, {  platform: this.state.form.platform,
                                              password: md5(this.state.form.password)
-                                            })
-        .then(response=>{
-            
+                                 })
+        .then(response=>{  
             console.log(response.data.props);
             localStorage.setItem('token', response.token)
             this.props.history.push({
-                pathname: '/login',
+                pathname: '/apiKey',
                 search: '?query=abc',
                 Headers: {"Accept": "application/json"},
                 state: { detail: response.data }
               })
-
         })
         .catch(error=>{
             console.log(error);
@@ -59,16 +50,22 @@ class Register extends Component{
         //history.push('/login');
         window.location.reload(false);
     })
-    }
-    
+
+
+}
+
+   
     render() {
+       
         return (
+    <div>
+    <img className= "formImg"src= "/home.png" alt="image" onClick={()=> this.props.history.push('/home')}></img>
     <div className="containerPrincipal">
+        
         <div className="containerSecundario">
         
           <br />
-            <label>Platform: </label>
-            <br />
+          <img className= "Img"src= "/Person.png" alt="image"></img>
             <input
               type="text"
               className="form-control"
@@ -76,23 +73,29 @@ class Register extends Component{
               onChange={this.handleChange}
             />
             <br />
-       
-            <label>Password: </label>
-            <br />
+            <img className= "Img"src= "/Password.png" alt="image"></img>
+              
             <input
               type="password"
               className="form-control"
               name="password"
+              autofocus
               onChange={this.handleChange}  
             />
-            <button className="btn btn-primary" onClick={() => this.signUp()}>Sign Up</button>
+           <br/><br/>
             
+            <img className= "formImg"src= "/play.png" alt="image" onClick={() => this.signUp()}></img>
+            
+           
           </div>
+          
+           
         </div>
-
+        </div>
         );
-    }
+    }   
 
 }
+
 
 export default Register;
